@@ -16,8 +16,22 @@ class BoardViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshWebView(_:)), for: UIControl.Event.valueChanged)
+        webView.scrollView.addSubview(refreshControl)
+        webView.scrollView.bounces = true
+        
+        
         webView.navigationDelegate = self
         loadWeb(htmlstr: "https://www.twicenest.com/board")
+        self.title = "트둥토크"
+    }
+    
+    @objc
+    func refreshWebView(_ sender: UIRefreshControl) {
+        webView?.reload()
+        sender.endRefreshing()
     }
 
     func loadWeb(htmlstr: String){

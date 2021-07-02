@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="84W-L3-rnv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rbB-dv-oaH">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -30,6 +30,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="트둥토크" landscapeImage="message.fill" catalog="system" largeContentSizeImage="message" badgeValue="1" id="wOO-Dd-gmV">
+                        <color key="badgeColor" red="1" green="0.37254901959999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="트둥토크" id="GeA-E6-n0o"/>
                     <connections>
                         <outlet property="webView" destination="dOW-Md-BSI" id="RV4-0W-Q3d"/>
@@ -55,31 +58,65 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FMI-Z9-a7Z"/>
+                        <segue destination="84W-L3-rnv" kind="relationship" relationship="rootViewController" id="yN9-Lk-up8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqY-md-oqT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979.71014492753636" y="52.901785714285715"/>
+            <point key="canvasLocation" x="129" y="53"/>
+        </scene>
+        <!--글쓰기-->
+        <scene sceneID="qU0-Ad-2D1">
+            <objects>
+                <viewController id="1Wz-Z5-qkZ" customClass="WriteViewController" customModule="TWICENEST" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gqm-8N-uHk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" customUserAgent="Mozila" translatesAutoresizingMaskIntoConstraints="NO" id="yTd-nm-nW3">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Nx-A7-B1O"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="글쓰기" id="M47-vy-PtD">
+                        <color key="badgeColor" red="1" green="0.37254901959999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="webView" destination="yTd-nm-nW3" id="Xew-GC-sdj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KdW-EU-8wI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888.8" y="757.87106446776613"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zJE-vm-R0L">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="84W-L3-rnv" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="XjU-fJ-1KR"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qcR-Fm-Ndg">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="1" green="0.37254901959999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="rbB-dv-oaH" kind="relationship" relationship="viewControllers" id="KPk-6s-iMR"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="aYl-d3-Sg2"/>
+                        <segue destination="1Wz-Z5-qkZ" kind="relationship" relationship="viewControllers" id="DfK-9l-xoZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgP-CL-WU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69.565217391304358" y="52.901785714285715"/>
+            <point key="canvasLocation" x="977" y="53"/>
         </scene>
         <!--Document View Controller-->
         <scene sceneID="n3b-WN-52w">
@@ -115,6 +152,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

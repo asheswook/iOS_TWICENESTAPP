@@ -19,9 +19,22 @@ class DocumentViewController: UIViewController {
     override func viewDidLoad() {
         self.navigationController?.navigationBar.tintColor = twiceColor
         super.viewDidLoad()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshWebView(_:)), for: UIControl.Event.valueChanged)
+        webView.scrollView.addSubview(refreshControl)
+        webView.scrollView.bounces = true
+        
         loadWeb(htmlstr: presentedURL)
         
         self.title = "게시물"
+        self.navigationController?.navigationBar.topItem?.title = "트둥토크"
+    }
+    
+    @objc
+    func refreshWebView(_ sender: UIRefreshControl) {
+        webView?.reload()
+        sender.endRefreshing()
     }
     
     

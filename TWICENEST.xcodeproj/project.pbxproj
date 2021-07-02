@@ -16,6 +16,7 @@
 		A51471E6268F037800335C07 /* TWICENESTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471E5268F037800335C07 /* TWICENESTUITests.swift */; };
 		A51471F6268F53EF00335C07 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471F5268F53EF00335C07 /* BoardViewController.swift */; };
 		A51471F8268F583400335C07 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471F7268F583400335C07 /* DocumentViewController.swift */; };
+		A51471FA268F686500335C07 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471F9268F686500335C07 /* WriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		A51471E7268F037800335C07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A51471F5268F53EF00335C07 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		A51471F7268F583400335C07 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		A51471F9268F686500335C07 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				A51471D1268F037800335C07 /* Info.plist */,
 				A51471F5268F53EF00335C07 /* BoardViewController.swift */,
 				A51471F7268F583400335C07 /* DocumentViewController.swift */,
+				A51471F9268F686500335C07 /* WriteViewController.swift */,
 			);
 			path = TWICENEST;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				A51471C4268F037500335C07 /* AppDelegate.swift in Sources */,
 				A51471F8268F583400335C07 /* DocumentViewController.swift in Sources */,
 				A51471C6268F037500335C07 /* SceneDelegate.swift in Sources */,
+				A51471FA268F686500335C07 /* WriteViewController.swift in Sources */,
 				A51471F6268F53EF00335C07 /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
