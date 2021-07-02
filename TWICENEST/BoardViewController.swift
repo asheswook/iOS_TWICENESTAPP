@@ -44,6 +44,8 @@ class BoardViewController: UIViewController, WKNavigationDelegate {
                     if let urlStr = navigationAction.request.url?.absoluteString {
                         if isWebDocument(urlString: urlStr) {
                             let DocumentViewController = self.storyboard?.instantiateViewController(withIdentifier: "DocumentViewController") as? DocumentViewController
+                            DocumentViewController?.presentedURL = urlStr
+                            
                             self.navigationController?.pushViewController(DocumentViewController!, animated: true)
                             decisionHandler(.cancel)
                             
