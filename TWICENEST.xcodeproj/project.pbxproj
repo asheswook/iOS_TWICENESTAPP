@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		A51471C4268F037500335C07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471C3268F037500335C07 /* AppDelegate.swift */; };
 		A51471C6268F037500335C07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471C5268F037500335C07 /* SceneDelegate.swift */; };
-		A51471C8268F037500335C07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471C7268F037500335C07 /* ViewController.swift */; };
 		A51471CB268F037500335C07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A51471C9268F037500335C07 /* Main.storyboard */; };
 		A51471CD268F037800335C07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A51471CC268F037800335C07 /* Assets.xcassets */; };
 		A51471D0268F037800335C07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A51471CE268F037800335C07 /* LaunchScreen.storyboard */; };
 		A51471DB268F037800335C07 /* TWICENESTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471DA268F037800335C07 /* TWICENESTTests.swift */; };
 		A51471E6268F037800335C07 /* TWICENESTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471E5268F037800335C07 /* TWICENESTUITests.swift */; };
+		A51471F6268F53EF00335C07 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471F5268F53EF00335C07 /* BoardViewController.swift */; };
+		A51471F8268F583400335C07 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51471F7268F583400335C07 /* DocumentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 		A51471C0268F037500335C07 /* TWICENEST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWICENEST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A51471C3268F037500335C07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A51471C5268F037500335C07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A51471C7268F037500335C07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A51471CA268F037500335C07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A51471CC268F037800335C07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A51471CF268F037800335C07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		A51471E1268F037800335C07 /* TWICENESTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TWICENESTUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A51471E5268F037800335C07 /* TWICENESTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWICENESTUITests.swift; sourceTree = "<group>"; };
 		A51471E7268F037800335C07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A51471F5268F53EF00335C07 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		A51471F7268F583400335C07 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +103,12 @@
 			children = (
 				A51471C3268F037500335C07 /* AppDelegate.swift */,
 				A51471C5268F037500335C07 /* SceneDelegate.swift */,
-				A51471C7268F037500335C07 /* ViewController.swift */,
 				A51471C9268F037500335C07 /* Main.storyboard */,
 				A51471CC268F037800335C07 /* Assets.xcassets */,
 				A51471CE268F037800335C07 /* LaunchScreen.storyboard */,
 				A51471D1268F037800335C07 /* Info.plist */,
+				A51471F5268F53EF00335C07 /* BoardViewController.swift */,
+				A51471F7268F583400335C07 /* DocumentViewController.swift */,
 			);
 			path = TWICENEST;
 			sourceTree = "<group>";
@@ -258,9 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A51471C8268F037500335C07 /* ViewController.swift in Sources */,
 				A51471C4268F037500335C07 /* AppDelegate.swift in Sources */,
+				A51471F8268F583400335C07 /* DocumentViewController.swift in Sources */,
 				A51471C6268F037500335C07 /* SceneDelegate.swift in Sources */,
+				A51471F6268F53EF00335C07 /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +442,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TWICENEST/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,6 +461,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TWICENEST/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
