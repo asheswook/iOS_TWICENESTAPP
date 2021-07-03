@@ -9,13 +9,33 @@ import UIKit
 import WebKit
 import SafariServices
 
+extension WKWebView {
+
+    func cleanAllCookies() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        print("All cookies deleted")
+
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                print("Cookie ::: \(record) deleted")
+            }
+        }
+    }
+
+    func refreshCookies() {
+        self.configuration.processPool = WKProcessPool()
+    }
+}
+
 class BoardViewController: UIViewController, WKNavigationDelegate {
 
-
+    
     @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15"
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshWebView(_:)), for: UIControl.Event.valueChanged)
@@ -24,9 +44,30 @@ class BoardViewController: UIViewController, WKNavigationDelegate {
         
         
         webView.navigationDelegate = self
-        loadWeb(htmlstr: "https://www.twicenest.com/board")
+        
+        loadWeb(htmlstr: "https://www.twicenest.com/")
         self.title = "트둥토크"
+        
+        
+        let dataStore = WKWebsiteDataStore.default()
+        dataStore.httpCookieStore.getAllCookies({ (cookies) in
+            print(cookies)
+        })
+        
+        webView.cleanAllCookies()
+        webView.refreshCookies()
+        
+        dataStore.httpCookieStore.getAllCookies({ (cookies) in
+            print(cookies)
+        })
+        
+        sendPost(paramText: "_filter=widget_login&error_return_url=%2F&mid=index&user_id=wookboy00&passwords=akfmxlsh1!&module=member&act=procMemberLogin&_rx_ajax_compat=XMLRPC&_rx_csrf_token=&vid=", urlString: "https://www.twicenest.com")
+        
+        
+        
+        
     }
+    
     
     @objc
     func refreshWebView(_ sender: UIRefreshControl) {
@@ -89,10 +130,54 @@ class BoardViewController: UIViewController, WKNavigationDelegate {
         }
         return false
     }
-
     
 
+    func sendPost(paramText: String, urlString: String) {
+        // paramText를 데이터 형태로 변환
+        let paramData = paramText.data(using: .utf8)
 
+        // URL 객체 정의
+        let posturl = URL(string: urlString)
+        
+        // URL Request 객체 정의
+        var request = URLRequest(url: posturl!)
+        request.httpMethod = "POST"
+        request.httpBody = paramData
 
+        // HTTP 메시지 헤더
+        request.setValue("application/json, text/javascript, */*; q=0.01", forHTTPHeaderField: "Accept")
+        request.setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("https://www.twicenest.com", forHTTPHeaderField: "Origin")
+        request.setValue(String(paramData!.count), forHTTPHeaderField: "Content-Length")
+        request.setValue("www.twicenest.com", forHTTPHeaderField: "Host")
+        request.setValue("ko-kr", forHTTPHeaderField: "Accept-Language")
+        request.setValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15", forHTTPHeaderField: "User-Agent")
+        request.setValue("gzip, deflate, br", forHTTPHeaderField: "Accept-Encoding")
+        request.setValue("keep-alive", forHTTPHeaderField: "Connection")
+        request.setValue("XMLHttpRequest", forHTTPHeaderField: "X-Requested-With")
+        
+        
+        print(String(paramData!.count))
+
+        // URLSession 객체를 통해 전송, 응답값 처리
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            // 서버가 응답이 없거나 통신이 실패
+            if let e = error {
+                NSLog("An error has occured: \(e.localizedDescription)")
+                return
+            }
+            // 응답 처리 로직
+            DispatchQueue.main.async() {
+                // 서버로부터 응답된 스트링 표시
+                let outputStr = String(data: data!, encoding: String.Encoding.utf8)
+                print("result: \(outputStr!)")
+            }
+            
+        }
+        // POST 전송
+        task.resume()
+    }
+    
 }
 
